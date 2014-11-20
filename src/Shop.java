@@ -15,5 +15,12 @@ public class Shop {
 	public int purchasedAppsNumber() {
 		return apps.size();
 	}
+	
+	/**
+	 * @return total number of customers
+	 */
+	public int customersNumber() {
+		return customers.size();
+	}
 
 }
