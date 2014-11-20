@@ -22,4 +22,28 @@ public class App {
 	public double cost() {
 		return 0;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public String getDeveloperName() {
+		return developerName;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public int getPurchasesNumber() {
+		return purchasesNumber;
+	}
 }
