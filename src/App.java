@@ -7,8 +7,9 @@ public class App {
 	private String category; // News, Games, Social Networking, Travel, etc.
 	private String type; // free trial OR for purchasing
 	
-	/*
+	/**
 	 * TODO: work out the cost of the app
+	 * @return calculated cost of the app
 	 */
 	public double cost() {
 		return 0;
