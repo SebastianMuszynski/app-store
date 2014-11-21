@@ -3,7 +3,6 @@ public class FreeApp extends App {
 
 	public FreeApp(String name, String description, String developerName, String category, String type) {
 		super(name, description, developerName, category, type, 0);
-		
 	}
 
 	/**
