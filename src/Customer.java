@@ -13,6 +13,28 @@ public abstract class Customer {
 		apps = new ArrayList<App>(); 
 	}
 	
+	/**
+	 * @return number of apps used as a free trial. 
+	 */
+	public int numberOfFreeApps() {
+		int number = 0;
+		for(int i = 0; i < apps.size(); i++)
+			if(apps.get(i) instanceof FreeApp)
+				number++;
+		return number;
+	}
+	
+	/**
+	 * @return number of purchased apps. 
+	 */
+	public int numberOfPaidApps() {
+		int number = 0;
+		for(int i = 0; i < apps.size(); i++)
+			if(apps.get(i) instanceof PaidApp)
+				number++;
+		return number;
+	}
+	
 	public String getName() {
 		return name;
 	}
