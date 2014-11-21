@@ -1,8 +1,8 @@
 
 public class PaidApp extends App {
 
-	public PaidApp(String name, String description, String developerName, String category, String type) {
-		super(name, description, developerName, category, type);
+	public PaidApp(String name, String description, String developerName, String category, String type, double cost) {
+		super(name, description, developerName, category, type, cost);
 	}
 
 	/**

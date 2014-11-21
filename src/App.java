@@ -5,12 +5,14 @@ public abstract class App {
 	private String developerName;
 	private String category; // News, Games, Social Networking, Travel, etc.
 	private int purchasesNumber; // the popularity of the app
+	private double cost;
 	
-	public App(String name, String description, String developerName, String category, String type) {
+	public App(String name, String description, String developerName, String category, String type, double cost) {
 		this.name = name;
 		this.description = description;
 		this.developerName = developerName;
 		this.category = category;
+		this.cost = cost;
 	}
 	
 	/**
@@ -36,5 +38,9 @@ public abstract class App {
 	
 	public int getPurchasesNumber() {
 		return purchasesNumber;
+	}
+	
+	public double getCost() {
+		return cost;
 	}
 }
