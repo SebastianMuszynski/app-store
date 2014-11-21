@@ -1,10 +1,9 @@
 
-public class App {
+public abstract class App {
 	private String name;
 	private String description;
 	private String developerName;
 	private String category; // News, Games, Social Networking, Travel, etc.
-	private String type; // free trial OR for purchasing
 	private int purchasesNumber; // the popularity of the app
 	
 	public App(String name, String description, String developerName, String category, String type) {
@@ -12,16 +11,12 @@ public class App {
 		this.description = description;
 		this.developerName = developerName;
 		this.category = category;
-		this.type = type;
 	}
 	
 	/**
-	 * TODO: work out the cost of the app
-	 * @return calculated cost of the app
+	 * It calculates the cost of the app.
 	 */
-	public double cost() {
-		return 0;
-	}
+	public abstract double cost();
 	
 	public String getName() {
 		return name;
@@ -37,10 +32,6 @@ public class App {
 	
 	public String getCategory() {
 		return category;
-	}
-	
-	public String getType() {
-		return type;
 	}
 	
 	public int getPurchasesNumber() {
