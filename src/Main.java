@@ -7,6 +7,8 @@ public class Main {
 		System.out.println("Total number of purchased apps: " + shop.purchasedAppsNumber());
 		System.out.println("Total number of customers: " + shop.customersNumber());
 		
+		shop.listApps();
+		
 		System.out.println();
 		
 		Customer student = new Student("Jack", "Los Angeles", "web developer");

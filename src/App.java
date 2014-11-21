@@ -43,4 +43,5 @@ public abstract class App {
 	public double getCost() {
 		return cost;
 	}
+	
 }

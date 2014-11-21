@@ -32,6 +32,15 @@ public class Shop {
 	}
 	
 	/**
+	 * It lists all the apps from the shop.
+	 * TODO: implement toString() method in the App
+	 */
+	public void listApps() {
+		for(int i = 0; i < apps.size(); i++)
+			System.out.println(apps.get(i));
+	}
+	
+	/**
 	 * It looks for the app by given app's name.
 	 * @param name – name of the app we want to find.
 	 * @return the app if it has been found, otherwise null.
