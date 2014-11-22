@@ -3,11 +3,11 @@ public abstract class App {
 	private String name;
 	private String description;
 	private String developerName;
-	private String category; // News, Games, Social Networking, Travel, etc.
 	private int purchasesNumber; // the popularity of the app
 	private double cost;
+	Category category;
 	
-	public App(String name, String description, String developerName, String category, String type, double cost) {
+	public App(String name, String description, String developerName, Category category, double cost) {
 		this.name = name;
 		this.description = description;
 		this.developerName = developerName;
@@ -33,7 +33,7 @@ public abstract class App {
 	}
 	
 	public String getCategory() {
-		return category;
+		return category.getCategory();
 	}
 	
 	public int getPurchasesNumber() {
