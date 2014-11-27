@@ -24,11 +24,19 @@ public class Shop {
 	}
 	
 	/**
-	 * It adds new app to the store.
+	 * It adds new app to the shop.
 	 * @param app – newly created app.
 	 */
 	public void addApp(App app) {
 		apps.add(app);
+	}
+	
+	/**
+	 * It adds new customer to the shop.
+	 * @param customer – newly created customer.
+	 */
+	public void addCustomer(Customer customer) {
+		customers.add(customer);
 	}
 	
 	/**
@@ -38,6 +46,15 @@ public class Shop {
 	public void listApps() {
 		for(int i = 0; i < apps.size(); i++)
 			System.out.println(apps.get(i));
+	}
+	
+	/**
+	 * It lists all the customers from the shop.
+	 * TODO: implement toString() method in the Customer
+	 */
+	public void listCustomers() {
+		for(int i = 0; i < customers.size(); i++)
+			System.out.println(customers.get(i));
 	}
 	
 	/**
@@ -56,13 +73,23 @@ public class Shop {
 	}
 	
 	/**
-	 * It deletes the given app from the store.
+	 * It deletes the given app from the shop.
 	 * @param app – the app we want to delete.
 	 */
 	public void deleteApp(App app) {
 		Integer appIndex = findAppIndex(app);
 		if(appIndex != null)
 			apps.remove(appIndex);
+	}
+	
+	/**
+	 * It deletes the given customer from the shop.
+	 * @param customer – the customer we want to delete.
+	 */
+	public void deleteCustomer(Customer customer) {
+		Integer customerIndex = findCustomerIndex(customer);
+		if(customerIndex != null)
+			customers.remove(customerIndex);
 	}
 	
 	/**
@@ -75,6 +102,18 @@ public class Shop {
 			if(app == apps.get(i)) 
 				appIndex = i;
 		return appIndex;
+	}
+	
+	/**
+	 * @param customer – the customer we are looking for.
+	 * @return the index of given customer, null if the customer does not exist.
+	 */
+	public Integer findCustomerIndex(Customer customer) {
+		Integer customerIndex = null;
+		for(int i = 0; i < customers.size() && customerIndex == null; i++)
+			if(customer == customers.get(i)) 
+				customerIndex = i;
+		return customerIndex;
 	}
 
 }
