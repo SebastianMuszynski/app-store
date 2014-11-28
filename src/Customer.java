@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Customer {
+public class Customer {
 	private String name;
 	private String address;
 	private String profession;
@@ -11,6 +11,10 @@ public abstract class Customer {
 		this.address = address;
 		this.profession = profession;
 		apps = new ArrayList<App>(); 
+	}
+	
+	public double getAppPercentageDiscount() {
+		return 0;
 	}
 	
 	/**

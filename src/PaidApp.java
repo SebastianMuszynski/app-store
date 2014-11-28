@@ -6,4 +6,12 @@ public class PaidApp extends App {
 		this.cost = cost;
 	}
 	
+	/**
+	 * @param customer – a customer who wants to buy an app.
+	 * @return the discounted cost of the app for a given customer.  
+	 */
+	public double getDiscountedCost(Customer customer) {
+		return (1 - customer.getAppPercentageDiscount()/100) * getCost();
+	}
+	
 }

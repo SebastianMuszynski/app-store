@@ -20,7 +20,7 @@ public class Main {
 		System.out.println("App type is " + app.getCategoryName());
 		
 		PaidApp paidApp = new PaidApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS, 12.50);
-		System.out.println("PaidApp price: " + paidApp.getCost());
+		System.out.println("PaidApp price: " + paidApp.getDiscountedCost(student));
 	}
 
 }
