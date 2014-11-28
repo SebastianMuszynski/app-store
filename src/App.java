@@ -1,24 +1,18 @@
 
-public abstract class App {
+public class App {
 	private String name;
 	private String description;
 	private String developerName;
-	private int purchasesNumber; // the popularity of the app
-	private double cost;
+	private int purchasesNumber;
 	private Category category;
+	protected double cost = 0;
 	
-	public App(String name, String description, String developerName, Category category, double cost) {
+	public App(String name, String description, String developerName, Category category) {
 		this.name = name;
 		this.description = description;
 		this.developerName = developerName;
 		this.category = category;
-		this.cost = cost;
 	}
-	
-	/**
-	 * It calculates the cost of the app.
-	 */
-	public abstract double cost();
 	
 	public String getName() {
 		return name;

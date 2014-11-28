@@ -16,10 +16,11 @@ public class Main {
 		System.out.println("Number of free apps: " + student.numberOfFreeApps());
 		System.out.println("Number of paid apps: " + student.numberOfPaidApps());
 		
-		
-		// app enum testing
-		FreeApp app = new FreeApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS);
+		App app = new App("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS);
 		System.out.println("App type is " + app.getCategoryName());
+		
+		PaidApp paidApp = new PaidApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS, 12.50);
+		System.out.println("PaidApp price: " + paidApp.getCost());
 	}
 
 }

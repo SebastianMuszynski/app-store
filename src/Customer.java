@@ -17,11 +17,7 @@ public abstract class Customer {
 	 * @return number of apps used as a free trial. 
 	 */
 	public int numberOfFreeApps() {
-		int number = 0;
-		for(int i = 0; i < apps.size(); i++)
-			if(apps.get(i) instanceof FreeApp)
-				number++;
-		return number;
+		return apps.size() - numberOfPaidApps();
 	}
 	
 	/**
