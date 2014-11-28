@@ -1,16 +1,23 @@
 
 public enum Category {
-	NEWS_APP("News app"),
-	GAMES_APP("Games app");
+	NEWS		("news"),
+	EDUCATION	("education"),
+	GAMES		("games"),
+	SOCIAL 		("social networking"),
+	TRAVEL		("travel"),
+	MUSIC		("music"),
+	BOOKS		("books"),
+	FILMS		("films"),
+	LIFESTYLE	("lifestyle"),
+	OTHER		("other");
 	
-	// appTitle holds the category String.
-	private String appTitle;
+	private final String name;
 	
-	private Category(String appTitle){
-		this.appTitle = appTitle;
+	Category(String name) {
+		this.name = name;
 	}
 	
-	String getCategory(){
-		return appTitle;
-	}
+	public String getName() {
+		return name;
+	}	
 }

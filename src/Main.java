@@ -18,8 +18,8 @@ public class Main {
 		
 		
 		// app enum testing
-		FreeApp app = new FreeApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS_APP);
-		System.out.println("App type is " + app.getCategory());
+		FreeApp app = new FreeApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS);
+		System.out.println("App type is " + app.getCategoryName());
 	}
 
 }

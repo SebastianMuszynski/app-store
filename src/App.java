@@ -5,7 +5,7 @@ public abstract class App {
 	private String developerName;
 	private int purchasesNumber; // the popularity of the app
 	private double cost;
-	Category category;
+	private Category category;
 	
 	public App(String name, String description, String developerName, Category category, double cost) {
 		this.name = name;
@@ -32,8 +32,12 @@ public abstract class App {
 		return developerName;
 	}
 	
-	public String getCategory() {
-		return category.getCategory();
+	public Category getCategory() {
+		return category;
+	}
+	
+	public String getCategoryName() {
+		return category.getName();
 	}
 	
 	public int getPurchasesNumber() {
