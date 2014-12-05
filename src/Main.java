@@ -12,6 +12,8 @@ public class Main {
 		System.out.println();
 		
 		Customer student = new Student("Jack", "Los Angeles", "web developer");
+		Customer academic = new Academic("Jack", "Los Angeles", "web developer");
+		
 		System.out.println("Student info:");
 		System.out.println("Number of free apps: " + student.numberOfFreeApps());
 		System.out.println("Number of paid apps: " + student.numberOfPaidApps());
@@ -20,7 +22,8 @@ public class Main {
 		System.out.println("App type is " + app.getCategoryName());
 		
 		PaidApp paidApp = new PaidApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS, 12.50);
-		System.out.println("PaidApp price: " + paidApp.getDiscountedCost(student));
+		System.out.println("PaidApp price for student: " + paidApp.getDiscountedCost(student));
+		System.out.println("PaidApp price for academic: " + paidApp.getDiscountedCost(academic));
 	}
 
 }
