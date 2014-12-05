@@ -1,3 +1,4 @@
+package AppShop;
 
 public class PaidApp extends App {
 

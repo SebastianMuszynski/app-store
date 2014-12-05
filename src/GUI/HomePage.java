@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Button;
+import java.awt.Label;
 
 @SuppressWarnings("serial")
 public class HomePage extends Page {
@@ -13,6 +14,9 @@ public class HomePage extends Page {
 		addAdminLoginBtn();
 		addLoginBtn();
 		addSignUpBtn();
+		addTotalNumberOfAppsText();
+		addNumberOfFreeAppsText();
+		addNumberOfPaidAppsText();
 	}
 
 	private void addAdminLoginBtn() {
@@ -31,5 +35,23 @@ public class HomePage extends Page {
 		Button button_2 = new Button("Sign up");
 		button_2.setBounds(485, 469, 150, 50);
 		add(button_2);
+	}
+	
+	private void addTotalNumberOfAppsText() {
+		Label label = new Label("Total number of apps: " + getShop().appsNumber());
+		label.setBounds(90, 175, 200, 21);
+		add(label);
+	}
+	
+	private void addNumberOfFreeAppsText() {
+		Label label_1 = new Label("– FREE apps: " + getShop().freeAppsNumber());
+		label_1.setBounds(121, 203, 131, 21);
+		add(label_1);
+	}
+	
+	private void addNumberOfPaidAppsText() {
+		Label label_2 = new Label("– PAID apps: " + getShop().paidAppsNumber());
+		label_2.setBounds(121, 230, 119, 21);
+		add(label_2);
 	}
 }

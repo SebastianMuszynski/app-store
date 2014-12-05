@@ -1,3 +1,4 @@
+package AppShop;
 import java.util.ArrayList;
 
 public class Shop {
@@ -8,12 +9,30 @@ public class Shop {
 		apps = new ArrayList<App>();
 		customers = new ArrayList<Customer>();
 	}
-
+	
 	/**
-	 * @return total number of apps which have been purchased
+	 * @return total number of apps
 	 */
-	public int purchasedAppsNumber() {
+	public int appsNumber() {
 		return apps.size();
+	}
+	
+	/**
+	 * @return number of apps used as a free trial. 
+	 */
+	public int freeAppsNumber() {
+		return appsNumber() - paidAppsNumber();
+	}
+	
+	/**
+	 * @return number of purchased apps. 
+	 */
+	public int paidAppsNumber() {
+		int number = 0;
+		for(int i = 0; i < appsNumber(); i++)
+			if(apps.get(i) instanceof PaidApp)
+				number++;
+		return number;
 	}
 	
 	/**

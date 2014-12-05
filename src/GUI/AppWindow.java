@@ -1,12 +1,13 @@
 package GUI;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+import AppShop.*;
 
 
 public class AppWindow {
 
 	private JFrame frame;
+	public static final Shop SHOP = new Shop();
 
 	/**
 	 * Launch the application.
@@ -38,6 +39,7 @@ public class AppWindow {
 		frame = new JFrame();
 		setDefaultSettings();
 		setDefaultPage();
+		
 	}
 	
 	private void setDefaultSettings() {

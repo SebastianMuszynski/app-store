@@ -1,3 +1,4 @@
+package AppShop;
 
 public enum Category {
 	NEWS		("news"),

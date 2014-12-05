@@ -1,3 +1,4 @@
+package AppShop;
 import java.util.ArrayList;
 
 public class Customer {
@@ -17,17 +18,21 @@ public class Customer {
 		return 0;
 	}
 	
+	public int appsNumber() {
+		return apps.size();
+	}
+	
 	/**
 	 * @return number of apps used as a free trial. 
 	 */
-	public int numberOfFreeApps() {
-		return apps.size() - numberOfPaidApps();
+	public int freeAppsNumber() {
+		return apps.size() - paidAppsNumber();
 	}
 	
 	/**
 	 * @return number of purchased apps. 
 	 */
-	public int numberOfPaidApps() {
+	public int paidAppsNumber() {
 		int number = 0;
 		for(int i = 0; i < apps.size(); i++)
 			if(apps.get(i) instanceof PaidApp)

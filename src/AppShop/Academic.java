@@ -1,3 +1,4 @@
+package AppShop;
 
 public class Academic extends Customer {
 	private static final double APP_PERCENTAGE_DISCOUNT = 10;

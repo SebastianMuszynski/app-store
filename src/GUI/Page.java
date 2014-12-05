@@ -5,9 +5,11 @@ import java.awt.Label;
 
 import javax.swing.JPanel;
 
+import AppShop.Shop;
+
 @SuppressWarnings("serial")
 public abstract class Page extends JPanel {
-
+	
 	/**
 	 * Create the panel.
 	 */
@@ -24,6 +26,10 @@ public abstract class Page extends JPanel {
 		label.setAlignment(Label.CENTER);
 		label.setBounds(331, 43, 129, 69);
 		add(label);
+	}
+	
+	public Shop getShop() {
+		return AppWindow.SHOP;
 	}
 
 }
