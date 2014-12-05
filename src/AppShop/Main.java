@@ -13,8 +13,8 @@ public class Main {
 		
 		System.out.println();
 		
-		Customer student = new Student("Jack", "Los Angeles", "web developer");
-		Customer academic = new Academic("Jack", "Los Angeles", "web developer");
+		Customer student = new Student("jack123", "qwerty", "Jack", "Los Angeles", "web developer");
+		Customer academic = new Academic("jack456", "myPassword", "Jack", "Los Angeles", "web developer");
 		
 		System.out.println("Student info:");
 		System.out.println("Number of free apps: " + student.freeAppsNumber());

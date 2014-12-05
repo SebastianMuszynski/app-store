@@ -1,13 +1,14 @@
 package AppShop;
 import java.util.ArrayList;
 
-public class Customer {
+public class Customer extends User {
 	private String name;
 	private String address;
 	private String profession;
 	private ArrayList<App> apps;
 	
-	public Customer(String name, String address, String profession) {
+	public Customer(String username, String password, String name, String address, String profession) {
+		super(username, password);
 		this.name = name;
 		this.address = address;
 		this.profession = profession;
