@@ -1,12 +1,15 @@
 package GUI;
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
-import AppShop.*;
+
+import AppShop.Shop;
 
 
 public class AppWindow {
 
-	private JFrame frame;
+	private static JFrame frame;
 	public static final Shop SHOP = new Shop();
 
 	/**
@@ -38,7 +41,7 @@ public class AppWindow {
 	private void initialize() {
 		frame = new JFrame();
 		setDefaultSettings();
-		setDefaultPage();
+		openHomePage();
 		
 	}
 	
@@ -50,7 +53,11 @@ public class AppWindow {
 		frame.setSize(800, 600);
 	}
 	
-	private void setDefaultPage() {
+	public static void openHomePage() {
 		frame.setContentPane(new HomePage());
+	}
+	
+	public static void openSignUpPage() {
+		frame.setContentPane(new SignUpPage());
 	}
 }

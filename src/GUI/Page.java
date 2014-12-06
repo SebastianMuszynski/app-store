@@ -14,9 +14,10 @@ public abstract class Page extends JPanel {
 	 * Create the panel.
 	 */
 	public Page() {
+		setLayout(null);
 		setBounds(100, 100, 450, 300);
 		setSize(800, 600);
-		setLayout(null);
+		setLocation(0, 0);
 		addTitle("AppShop");
 	}
 	

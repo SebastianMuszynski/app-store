@@ -2,6 +2,8 @@ package GUI;
 
 import java.awt.Button;
 import java.awt.Label;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class HomePage extends Page {
@@ -33,6 +35,11 @@ public class HomePage extends Page {
 	
 	private void addSignUpBtn() {
 		Button button_2 = new Button("Sign up");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openSignUpPage();
+			}
+		});
 		button_2.setBounds(485, 469, 150, 50);
 		add(button_2);
 	}
