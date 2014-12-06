@@ -23,6 +23,11 @@ public class HomePage extends Page {
 	private void addAdminLoginBtn() {
 		Button button = new Button("Log in as an admin");
 		button.setBounds(623, 10, 167, 40);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openLogInPage();
+			}
+		});
 		add(button);
 	}
 	

@@ -59,4 +59,8 @@ public class AppWindow {
 	public static void openSignUpPage() {
 		frame.setContentPane(new SignUpPage());
 	}
+	
+	public static void openLogInPage() {
+		frame.setContentPane(new LogInPage());
+	}
 }

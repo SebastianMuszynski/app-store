@@ -31,17 +31,10 @@ public class SignUpPage extends Page {
 	 */
 	public SignUpPage() {
 		super();
-		addAdminLoginBtn();
 		addFormFields();
 		addSendBtn();
 	}
 
-	private void addAdminLoginBtn() {
-		Button button = new Button("Log in as an admin");
-		button.setBounds(623, 10, 167, 40);
-		add(button);
-	}
-	
 	private void addFormFields() {
 		JLabel lblUsername = new JLabel("Username:");
 		lblUsername.setBounds(65, 156, 112, 15);
