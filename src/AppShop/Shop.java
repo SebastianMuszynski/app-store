@@ -42,6 +42,26 @@ public class Shop {
 		return users.size();
 	}
 	
+	public int customersNumber() {
+		return usersNumber() - studentsNumber() - academicsNumber();
+	}
+	
+	public int studentsNumber() {
+		int number = 0;
+		for(User user : users)
+			if(user instanceof Student)
+				number++;
+		return number;
+	}
+	
+	public int academicsNumber() {
+		int number = 0;
+		for(User user : users)
+			if(user instanceof Academic)
+				number++;
+		return number;
+	}
+	
 	/**
 	 * It adds new app to the shop.
 	 * @param app – newly created app.
