@@ -4,10 +4,26 @@ import java.util.ArrayList;
 public class Shop {
 	ArrayList<App> apps;
 	ArrayList<User> users;
+	private User currentUser;
+	private Admin admin;
 	
 	public Shop() {
 		apps = new ArrayList<App>();
 		users = new ArrayList<User>();
+		currentUser = null;
+		admin = new Admin("admin", "123456");
+	}
+	
+	public boolean validAdminCredentials(String username, String password) {
+		return admin.getUsername().equals(username) && admin.checkPassword(password);
+	}
+	
+	public User getCurrentUser() {
+		return currentUser;
+	}
+	
+	public void setCurrentUser(User user) {
+		currentUser = user;
 	}
 	
 	/**
