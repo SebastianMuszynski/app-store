@@ -1,5 +1,4 @@
 package GUI;
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,8 +18,8 @@ public class AppWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AppWindow window = new AppWindow();
-					window.frame.setVisible(true);
+					new AppWindow();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,7 +41,7 @@ public class AppWindow {
 		frame = new JFrame();
 		setDefaultSettings();
 		openHomePage();
-		
+		frame.setVisible(true);
 	}
 	
 	private void setDefaultSettings() {

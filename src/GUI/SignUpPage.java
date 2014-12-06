@@ -1,22 +1,30 @@
 package GUI;
 
 import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import AppShop.Academic;
+import AppShop.Customer;
+import AppShop.Student;
+import AppShop.User;
 
 @SuppressWarnings("serial")
 public class SignUpPage extends Page {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	
+	private JTextField usernameTxt;
+	private JTextField passwordTxt;
+	private JTextField nameTxt;
+	private JTextField addressTxt;
+	private JTextField professionTxt;
+	private JComboBox<String> customerType;
+	private final String[] customerTypes = {"a normal customer", "a student", "an academic"};
 
 	/**
 	 * Create the panel.
@@ -55,50 +63,66 @@ public class SignUpPage extends Page {
 		lblProfession.setBounds(65, 264, 112, 15);
 		add(lblProfession);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(195, 154, 114, 19);
-		add(textField);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(195, 181, 114, 19);
-		add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(195, 208, 114, 19);
-		add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(195, 237, 114, 19);
-		add(textField_3);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(195, 262, 114, 19);
-		add(textField_4);
-		
-		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"a normal customer", "a student", "an academic"}));
-		comboBox.setBounds(195, 293, 197, 24);
-		add(comboBox);
-		
 		JLabel lblIAm = new JLabel("I am:");
 		lblIAm.setHorizontalAlignment(SwingConstants.TRAILING);
 		lblIAm.setBounds(120, 298, 70, 15);
 		add(lblIAm);
+		
+		usernameTxt = new JTextField();
+		usernameTxt.setColumns(10);
+		usernameTxt.setBounds(195, 154, 114, 19);
+		add(usernameTxt);
+		
+		passwordTxt = new JTextField();
+		passwordTxt.setColumns(10);
+		passwordTxt.setBounds(195, 181, 114, 19);
+		add(passwordTxt);
+		
+		nameTxt = new JTextField();
+		nameTxt.setColumns(10);
+		nameTxt.setBounds(195, 208, 114, 19);
+		add(nameTxt);
+		
+		addressTxt = new JTextField();
+		addressTxt.setColumns(10);
+		addressTxt.setBounds(195, 237, 114, 19);
+		add(addressTxt);
+		
+		professionTxt = new JTextField();
+		professionTxt.setColumns(10);
+		professionTxt.setBounds(195, 262, 114, 19);
+		add(professionTxt);
+		
+		customerType = new JComboBox<String>();
+		customerType.setModel(new DefaultComboBoxModel<String>(customerTypes));
+		customerType.setBounds(195, 293, 197, 24);
+		add(customerType);
+		
 	}
 	
 	private void addSendBtn() {
 		Button button_1 = new Button("Send");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				createUser();
 				AppWindow.openHomePage();
 			}
 		});
 		button_1.setBounds(195, 345, 167, 29);
 		add(button_1);
+	}
+	
+	private void createUser() {
+		User user;
+		String selectedCustomerType = customerType.getSelectedItem().toString();
+		
+		if(selectedCustomerType.equals(customerTypes[1]))
+			user = new Student(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
+		else if(selectedCustomerType.equals(customerTypes[2]))
+			user = new Academic(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
+		else
+			user = new Customer(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
+		
+		AppWindow.SHOP.addUser(user);
 	}
 }

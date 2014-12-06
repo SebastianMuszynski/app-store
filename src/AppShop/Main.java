@@ -7,7 +7,7 @@ public class Main {
 		Shop shop = new Shop();
 		System.out.println("Shop info:");
 		System.out.println("Total number of purchased apps: " + shop.appsNumber());
-		System.out.println("Total number of customers: " + shop.customersNumber());
+		System.out.println("Total number of users: " + shop.usersNumber());
 		
 		shop.listApps();
 		

@@ -3,11 +3,11 @@ import java.util.ArrayList;
 
 public class Shop {
 	ArrayList<App> apps;
-	ArrayList<Customer> customers;
+	ArrayList<User> users;
 	
 	public Shop() {
 		apps = new ArrayList<App>();
-		customers = new ArrayList<Customer>();
+		users = new ArrayList<User>();
 	}
 	
 	/**
@@ -36,10 +36,10 @@ public class Shop {
 	}
 	
 	/**
-	 * @return total number of customers
+	 * @return total number of users
 	 */
-	public int customersNumber() {
-		return customers.size();
+	public int usersNumber() {
+		return users.size();
 	}
 	
 	/**
@@ -51,11 +51,11 @@ public class Shop {
 	}
 	
 	/**
-	 * It adds new customer to the shop.
-	 * @param customer – newly created customer.
+	 * It adds new user to the shop.
+	 * @param user – newly created user.
 	 */
-	public void addCustomer(Customer customer) {
-		customers.add(customer);
+	public void addUser(User user) {
+		users.add(user);
 	}
 	
 	/**
@@ -68,12 +68,11 @@ public class Shop {
 	}
 	
 	/**
-	 * It lists all the customers from the shop.
-	 * TODO: implement toString() method in the Customer
+	 * It lists all the users from the shop.
 	 */
-	public void listCustomers() {
-		for(int i = 0; i < customers.size(); i++)
-			System.out.println(customers.get(i));
+	public void listUsers() {
+		for(int i = 0; i < users.size(); i++)
+			System.out.println(users.get(i));
 	}
 	
 	/**
@@ -102,13 +101,13 @@ public class Shop {
 	}
 	
 	/**
-	 * It deletes the given customer from the shop.
-	 * @param customer – the customer we want to delete.
+	 * It deletes the given user from the shop.
+	 * @param user – the user we want to delete.
 	 */
-	public void deleteCustomer(Customer customer) {
-		Integer customerIndex = findCustomerIndex(customer);
-		if(customerIndex != null)
-			customers.remove(customerIndex);
+	public void deleteUser(User user) {
+		Integer userIndex = findUserIndex(user);
+		if(userIndex != null)
+			users.remove(userIndex);
 	}
 	
 	/**
@@ -124,15 +123,15 @@ public class Shop {
 	}
 	
 	/**
-	 * @param customer – the customer we are looking for.
-	 * @return the index of given customer, null if the customer does not exist.
+	 * @param user – the user we are looking for.
+	 * @return the index of given user, null if the user does not exist.
 	 */
-	public Integer findCustomerIndex(Customer customer) {
-		Integer customerIndex = null;
-		for(int i = 0; i < customers.size() && customerIndex == null; i++)
-			if(customer == customers.get(i)) 
-				customerIndex = i;
-		return customerIndex;
+	public Integer findUserIndex(User user) {
+		Integer userIndex = null;
+		for(int i = 0; i < users.size() && userIndex == null; i++)
+			if(user == users.get(i)) 
+				userIndex = i;
+		return userIndex;
 	}
 
 }
