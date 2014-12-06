@@ -63,4 +63,8 @@ public class AppWindow {
 	public static void openLogInPage() {
 		frame.setContentPane(new LogInPage());
 	}
+	
+	public static void openLogInAdminPage() {
+		frame.setContentPane(new LogInAdminPage());
+	}
 }

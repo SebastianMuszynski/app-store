@@ -25,7 +25,7 @@ public class HomePage extends Page {
 		button.setBounds(623, 10, 167, 40);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AppWindow.openLogInPage();
+				AppWindow.openLogInAdminPage();
 			}
 		});
 		add(button);
@@ -34,6 +34,11 @@ public class HomePage extends Page {
 	private void addLoginBtn() {
 		Button button_1 = new Button("Log in");
 		button_1.setBounds(216, 469, 150, 50);
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openLogInPage();
+			}
+		});
 		add(button_1);
 	}
 	
@@ -63,11 +68,11 @@ public class HomePage extends Page {
 	}
 	
 	private void addUsersNumberInfo() {
-		Label label = new Label("Total number of users: " + getShop().usersNumber());
+		Label label = new Label("Total number of customers: " + getShop().customersNumber());
 		label.setBounds(90, 279, 200, 21);
 		add(label);
 		
-		Label label_2 = new Label("– normal customers: " + getShop().customersNumber());
+		Label label_2 = new Label("– normal customers: " + getShop().normalCustomersNumber());
 		label_2.setBounds(121, 306, 169, 21);
 		add(label_2);
 		

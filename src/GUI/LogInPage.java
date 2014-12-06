@@ -7,10 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import AppShop.Admin;
+import AppShop.User;
+
+@SuppressWarnings("serial")
 public class LogInPage extends Page {
 
-	private JTextField usernameTxt;
-	private JTextField passwordTxt;
+	protected JTextField usernameTxt;
+	protected JTextField passwordTxt;
+	private JLabel lblErrorMsg;
 	
 	/**
 	 * Create the panel.
@@ -19,6 +24,8 @@ public class LogInPage extends Page {
 		super();
 		addFormFields();
 		addSendBtn();
+		addErrorMsg();
+		hideErrorMsg();
 	}
 	
 	private void addFormFields() {
@@ -45,17 +52,36 @@ public class LogInPage extends Page {
 		Button button_1 = new Button("Send");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				hideErrorMsg();
 				logInUser();
-				AppWindow.openHomePage();
 			}
 		});
 		button_1.setBounds(195, 345, 167, 29);
 		add(button_1);
 	}
 	
-	private void logInUser() {
-		/**
-		 * TODO: implement logging user in
-		 */
+	protected void logInUser() {
+		String username = usernameTxt.getText();
+		String password = passwordTxt.getText();
+		User user = AppWindow.SHOP.findUserByUsername(username);
+		if(user != null && user.checkPassword(password) && !(user instanceof Admin)) {
+			AppWindow.SHOP.setCurrentUser(user);
+			AppWindow.openHomePage();
+		} else 
+			showErrorMsg();
+	}
+	
+	private void addErrorMsg() {
+		lblErrorMsg = new JLabel("We are sorry, but there is no user with provided username and password.");
+		lblErrorMsg.setBounds(65, 242, 641, 15);
+		add(lblErrorMsg);
+	}
+	
+	protected void showErrorMsg() {
+		lblErrorMsg.setVisible(true);
+	}
+	
+	private void hideErrorMsg() {
+		lblErrorMsg.setVisible(false);
 	}
 }

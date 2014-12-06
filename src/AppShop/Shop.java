@@ -5,17 +5,22 @@ public class Shop {
 	ArrayList<App> apps;
 	ArrayList<User> users;
 	private User currentUser;
-	private Admin admin;
 	
 	public Shop() {
 		apps = new ArrayList<App>();
 		users = new ArrayList<User>();
+		users.add(new Admin("admin", "123456"));
 		currentUser = null;
-		admin = new Admin("admin", "123456");
 	}
 	
-	public boolean validAdminCredentials(String username, String password) {
-		return admin.getUsername().equals(username) && admin.checkPassword(password);
+	public User findUserByUsername(String username) {
+		User wantedUser = null;
+		for(int i = 0; i < users.size() && wantedUser == null; i++) {
+			User user = users.get(i);
+			if(user.getUsername().equals(username))
+				wantedUser = user;
+		}
+		return wantedUser;
 	}
 	
 	public User getCurrentUser() {
@@ -59,7 +64,15 @@ public class Shop {
 	}
 	
 	public int customersNumber() {
-		return usersNumber() - studentsNumber() - academicsNumber();
+		int number = 0;
+		for(User user : users)
+			if(user instanceof Customer)
+				number++;
+		return number;
+	}
+	
+	public int normalCustomersNumber() {
+		return customersNumber() - studentsNumber() - academicsNumber();
 	}
 	
 	public int studentsNumber() {
