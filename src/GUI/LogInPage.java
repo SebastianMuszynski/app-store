@@ -30,21 +30,21 @@ public class LogInPage extends Page {
 	
 	private void addFormFields() {
 		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setBounds(65, 156, 112, 15);
+		lblUsername.setBounds(205, 281, 112, 15);
 		add(lblUsername);
 
 		usernameTxt = new JTextField();
 		usernameTxt.setColumns(10);
-		usernameTxt.setBounds(195, 154, 114, 19);
+		usernameTxt.setBounds(335, 279, 167, 19);
 		add(usernameTxt);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(65, 183, 112, 15);
+		lblPassword.setBounds(205, 308, 112, 15);
 		add(lblPassword);
 		
 		passwordTxt = new JTextField();
 		passwordTxt.setColumns(10);
-		passwordTxt.setBounds(195, 181, 114, 19);
+		passwordTxt.setBounds(335, 306, 167, 19);
 		add(passwordTxt);
 	}
 	
@@ -56,7 +56,7 @@ public class LogInPage extends Page {
 				logInUser();
 			}
 		});
-		button_1.setBounds(195, 345, 167, 29);
+		button_1.setBounds(335, 331, 167, 29);
 		add(button_1);
 	}
 	
@@ -73,7 +73,7 @@ public class LogInPage extends Page {
 	
 	private void addErrorMsg() {
 		lblErrorMsg = new JLabel("We are sorry, but there is no user with provided username and password.");
-		lblErrorMsg.setBounds(65, 242, 641, 15);
+		lblErrorMsg.setBounds(147, 221, 641, 15);
 		add(lblErrorMsg);
 	}
 	

@@ -5,6 +5,10 @@ import java.awt.Label;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.swing.JLabel;
+
+import AppShop.User;
+
 @SuppressWarnings("serial")
 public class HomePage extends Page {
 
@@ -13,11 +17,19 @@ public class HomePage extends Page {
 	 */
 	public HomePage() {
 		super();
-		addAdminLoginBtn();
-		addLoginBtn();
-		addSignUpBtn();
 		addAppsNumberInfo();
 		addUsersNumberInfo();
+		if(AppWindow.SHOP.isAdminLoggedIn()) {
+			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
+			addLogOutBtn();
+		} else if(AppWindow.SHOP.isUserLoggedIn()) {
+			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
+			addLogOutBtn();
+		} else {
+			addAdminLoginBtn();
+			addLoginBtn();
+			addSignUpBtn();
+		}
 	}
 
 	private void addAdminLoginBtn() {
@@ -40,6 +52,18 @@ public class HomePage extends Page {
 			}
 		});
 		add(button_1);
+	}
+	
+	private void addLogOutBtn() {
+		Button button = new Button("Log out");
+		button.setBounds(623, 10, 167, 40);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.SHOP.setCurrentUser(null);
+				AppWindow.openHomePage();
+			}
+		});
+		add(button);
 	}
 	
 	private void addSignUpBtn() {
@@ -83,5 +107,11 @@ public class HomePage extends Page {
 		Label label_3 = new Label("– academics: " + getShop().academicsNumber());
 		label_3.setBounds(121, 360, 119, 21);
 		add(label_3);
+	}
+	
+	private void addUserLoggedInInfo(User user) {
+		JLabel lblCurrentlyLoggedIn = new JLabel("Currently logged in as: " + user.getUsername());
+		lblCurrentlyLoggedIn.setBounds(12, 12, 382, 15);
+		add(lblCurrentlyLoggedIn);
 	}
 }

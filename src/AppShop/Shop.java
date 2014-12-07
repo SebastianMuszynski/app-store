@@ -31,6 +31,14 @@ public class Shop {
 		currentUser = user;
 	}
 	
+	public boolean isAdminLoggedIn() {
+		return currentUser != null && currentUser instanceof Admin;
+	}
+	
+	public boolean isUserLoggedIn() {
+		return currentUser != null && !(currentUser instanceof Admin);
+	}
+	
 	/**
 	 * @return total number of apps
 	 */

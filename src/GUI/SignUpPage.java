@@ -97,7 +97,7 @@ public class SignUpPage extends Page {
 		Button button_1 = new Button("Send");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				createUser();
+				AppWindow.SHOP.setCurrentUser(createUser());
 				AppWindow.openHomePage();
 			}
 		});
@@ -105,7 +105,7 @@ public class SignUpPage extends Page {
 		add(button_1);
 	}
 	
-	private void createUser() {
+	private User createUser() {
 		User user;
 		String selectedCustomerType = customerType.getSelectedItem().toString();
 		
@@ -117,5 +117,6 @@ public class SignUpPage extends Page {
 			user = new Customer(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
 		
 		AppWindow.SHOP.addUser(user);
+		return user;
 	}
 }
