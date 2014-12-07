@@ -79,6 +79,14 @@ public class Shop {
 		return number;
 	}
 	
+	public ArrayList<Customer> getCustomers() {
+		ArrayList<Customer> customers = new ArrayList<Customer>();
+		for(User user : users)
+			if(user instanceof Customer)
+				customers.add((Customer) user);
+		return customers;
+	}
+	
 	public int normalCustomersNumber() {
 		return customersNumber() - studentsNumber() - academicsNumber();
 	}

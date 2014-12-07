@@ -15,6 +15,7 @@ public class Main {
 		
 		Customer student = new Student("jack123", "qwerty", "Jack", "Los Angeles", "web developer");
 		Customer academic = new Academic("jack456", "myPassword", "Jack", "Los Angeles", "web developer");
+		System.out.println(student.toString());
 		
 		System.out.println("Student info:");
 		System.out.println("Number of free apps: " + student.freeAppsNumber());

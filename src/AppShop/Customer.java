@@ -52,5 +52,9 @@ public class Customer extends User {
 	public String getProfession() {
 		return profession;
 	}
+	
+	public String toString() {
+		return name + " (" + username + ")";
+	}
 
 }

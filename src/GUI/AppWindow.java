@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import AppShop.Shop;
+import GUI.Admin.ManageCustomersPage;
 
 
 public class AppWindow {
@@ -66,5 +67,9 @@ public class AppWindow {
 	
 	public static void openLogInAdminPage() {
 		frame.setContentPane(new LogInAdminPage());
+	}
+	
+	public static void openManageCustomersPage() {
+		frame.setContentPane(new ManageCustomersPage());
 	}
 }

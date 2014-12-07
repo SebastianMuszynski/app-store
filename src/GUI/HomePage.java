@@ -2,8 +2,8 @@ package GUI;
 
 import java.awt.Button;
 import java.awt.Label;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 
@@ -20,11 +20,12 @@ public class HomePage extends Page {
 		addAppsNumberInfo();
 		addUsersNumberInfo();
 		if(AppWindow.SHOP.isAdminLoggedIn()) {
-			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
 			addLogOutBtn();
+			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
+			addManageCustomersBtn();
 		} else if(AppWindow.SHOP.isUserLoggedIn()) {
-			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
 			addLogOutBtn();
+			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
 		} else {
 			addAdminLoginBtn();
 			addLoginBtn();
@@ -38,6 +39,17 @@ public class HomePage extends Page {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AppWindow.openLogInAdminPage();
+			}
+		});
+		add(button);
+	}
+	
+	private void addManageCustomersBtn() {
+		Button button = new Button("Customers");
+		button.setBounds(216, 469, 150, 50);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openManageCustomersPage();
 			}
 		});
 		add(button);
