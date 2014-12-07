@@ -66,9 +66,7 @@ public class ManageCustomersPage extends Page {
 		JButton btnNewButton = new JButton("Show details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int selectedIndex = list.getSelectedIndex();
-				Customer selectedCustomer = list.getModel().getElementAt(selectedIndex);
-				AppWindow.openShowCustomerPage(selectedCustomer);
+				AppWindow.openShowCustomerPage(getSelectedCustomer());
 			}
 		});
 		btnNewButton.setBounds(508, 230, 150, 25);
@@ -80,7 +78,7 @@ public class ManageCustomersPage extends Page {
 		btnEdit.setBounds(508, 267, 150, 25);
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AppWindow.openEditCustomerPage();
+				AppWindow.openEditCustomerPage(getSelectedCustomer());
 			}
 		});
 		add(btnEdit);
@@ -98,5 +96,10 @@ public class ManageCustomersPage extends Page {
 			}
 		});
 		add(btnRemove);
+	}
+	
+	private Customer getSelectedCustomer() {
+		int selectedIndex = list.getSelectedIndex();
+		return list.getModel().getElementAt(selectedIndex);
 	}
 }

@@ -80,7 +80,7 @@ public class AppWindow {
 		frame.setContentPane(new ShowCustomerPage(customer));
 	}
 	
-	public static void openEditCustomerPage() {
-		frame.setContentPane(new EditCustomerPage());
+	public static void openEditCustomerPage(Customer customer) {
+		frame.setContentPane(new EditCustomerPage(customer));
 	}
 }

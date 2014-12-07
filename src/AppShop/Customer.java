@@ -45,12 +45,24 @@ public class Customer extends User {
 		return name;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getAddress() {
 		return address;
 	}
 	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
 	public String getProfession() {
 		return profession;
+	}
+	
+	public void setProfession(String profession) {
+		this.profession = profession;
 	}
 	
 	public String toString() {
