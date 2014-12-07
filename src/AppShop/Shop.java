@@ -94,6 +94,10 @@ public class Shop {
 		return customers;
 	}
 	
+	public ArrayList<App> getApps() {
+		return apps;
+	}
+	
 	public int normalCustomersNumber() {
 		return customersNumber() - studentsNumber() - academicsNumber();
 	}

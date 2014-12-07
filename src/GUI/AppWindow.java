@@ -3,11 +3,16 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import AppShop.App;
 import AppShop.Customer;
 import AppShop.Shop;
+import GUI.Admin.AddAppPage;
 import GUI.Admin.AddCustomerPage;
+import GUI.Admin.EditAppPage;
 import GUI.Admin.EditCustomerPage;
+import GUI.Admin.ManageAppsPage;
 import GUI.Admin.ManageCustomersPage;
+import GUI.Admin.ShowAppPage;
 import GUI.Admin.ShowCustomerPage;
 
 
@@ -73,6 +78,7 @@ public class AppWindow {
 		frame.setContentPane(new LogInAdminPage());
 	}
 	
+	// Admin: Customers
 	public static void openManageCustomersPage() {
 		frame.setContentPane(new ManageCustomersPage());
 	}
@@ -87,5 +93,22 @@ public class AppWindow {
 	
 	public static void openAddCustomerPage() {
 		frame.setContentPane(new AddCustomerPage());
+	}
+	
+	// Admin: Apps
+	public static void openManageAppsPage() {
+		frame.setContentPane(new ManageAppsPage());
+	}
+	
+	public static void openShowAppPage(App app) {
+		frame.setContentPane(new ShowAppPage(app));
+	}
+	
+	public static void openEditAppPage(App app) {
+		frame.setContentPane(new EditAppPage(app));
+	}
+	
+	public static void openAddAppPage() {
+		frame.setContentPane(new AddAppPage());
 	}
 }

@@ -11,37 +11,37 @@ import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
-import AppShop.Customer;
+import AppShop.App;
 import GUI.AppWindow;
 import GUI.Page;
 
 @SuppressWarnings("serial")
-public class ManageCustomersPage extends Page {
-	
-	private JList<Customer> list;
-	private JTextField customerUsernameTxt;
-	private Label noCustomerFound;
+public class ManageAppsPage extends Page {
 
+	private JList<App> list;
+	private JTextField appNameTxt;
+	private Label noAppFound;
+	
 	/**
 	 * Create the panel.
 	 */
-	public ManageCustomersPage() {
+	public ManageAppsPage() {
 		super();
-		addCustomersList();
+		addAppsList();
 		addMenuButtons();
-		addCustomerSearchFields();
+		addAppSearchFields();
 	}
 	
-	private void addCustomersList() {
-		list = new JList<Customer>();
+	private void addAppsList() {
+		list = new JList<App>();
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.setModel(new AbstractListModel<Customer>() {
-			ArrayList<Customer> customers = AppWindow.SHOP.getCustomers();
+		list.setModel(new AbstractListModel<App>() {
+			ArrayList<App> apps = AppWindow.SHOP.getApps();
 			public int getSize() { 
-				return customers.size();
+				return apps.size();
 			}
-			public Customer getElementAt(int index) {
-				return customers.get(index);
+			public App getElementAt(int index) {
+				return apps.get(index);
 			}
 		});
 		list.setSelectedIndex(0);
@@ -49,53 +49,52 @@ public class ManageCustomersPage extends Page {
 		if(list.getModel().getSize() != 0)
 			add(list);
 		else
-			displayNoCustomersInfo();
+			displayNoAppsInfo();
 	}
 	
-	private void displayNoCustomersInfo() {
-		Label label = new Label("There are no customers :(");
+	private void displayNoAppsInfo() {
+		Label label = new Label("There are no apps :(");
 		label.setBounds(277, 289, 245, 21);
 		add(label);
 	}
 	
 	private void addMenuButtons() { 
-		addCreateCustomerBtn();
+		addCreateAppBtn();
 		if(list != null && list.getModel().getSize() > 0) {
-			addShowCustomerBtn();
-			addEditCustomerBtn();
+			addShowAppBtn();
+			addEditAppBtn();
 			addRemoveCustomerBtn();
 		}
 	}
 	
-	private void addCreateCustomerBtn() {
+	private void addCreateAppBtn() {
 		JButton btnNew = new JButton("Create");
 		btnNew.setBounds(508, 193, 150, 25);
 		btnNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				AppWindow.openAddCustomerPage();
+				AppWindow.openAddAppPage();
 			}
 		});
 		add(btnNew);
 	}
 	
-	private void addShowCustomerBtn() {
+	private void addShowAppBtn() {
 		JButton btnNewButton = new JButton("Show details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AppWindow.openShowCustomerPage(getSelectedCustomer());
+				AppWindow.openShowAppPage(getSelectedApp());
 			}
 		});
 		btnNewButton.setBounds(508, 230, 150, 25);
 		add(btnNewButton);
 	}
 	
-	private void addEditCustomerBtn() {
+	private void addEditAppBtn() {
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.setBounds(508, 267, 150, 25);
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AppWindow.openEditCustomerPage(getSelectedCustomer());
+				AppWindow.openEditAppPage(getSelectedApp());
 			}
 		});
 		add(btnEdit);
@@ -107,47 +106,48 @@ public class ManageCustomersPage extends Page {
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedIndex = list.getSelectedIndex();
-				Customer customer = list.getModel().getElementAt(selectedIndex);
-				AppWindow.SHOP.deleteUserByUsername(customer.getUsername());
+				App app = list.getModel().getElementAt(selectedIndex);
+				AppWindow.SHOP.deleteApp(app);
 				AppWindow.openManageCustomersPage();
 			}
 		});
 		add(btnRemove);
 	}
 	
-	private Customer getSelectedCustomer() {
+	private App getSelectedApp() {
 		int selectedIndex = list.getSelectedIndex();
 		return list.getModel().getElementAt(selectedIndex);
 	}
 	
-	private void addCustomerSearchFields() {
-		customerUsernameTxt = new JTextField();
-		customerUsernameTxt.setBounds(288, 482, 196, 19);
-		customerUsernameTxt.setColumns(10);
-		add(customerUsernameTxt);
+	private void addAppSearchFields() {
+		appNameTxt = new JTextField();
+		appNameTxt.setBounds(288, 482, 196, 19);
+		appNameTxt.setColumns(10);
+		add(appNameTxt);
 		
-		Label label = new Label("Type customer's username:");
+		Label label = new Label("Type app's name:");
 		label.setBounds(98, 480, 184, 21);
 		add(label);
 		
 		JButton searchBtn = new JButton("Search");
 		searchBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String username = customerUsernameTxt.getText();
-				Customer customer = (Customer) AppWindow.SHOP.findUserByUsername(username);
-				if(customer != null)
-					AppWindow.openShowCustomerPage(customer);
+				String name = appNameTxt.getText();
+				App app = (App) AppWindow.SHOP.findAppByName(name);
+				if(app != null)
+					AppWindow.openShowAppPage(app);
 				else
-					displayNoCustomerFoundInfo();
+					displayNoAppFoundInfo();
 			}
 		});
 		searchBtn.setBounds(496, 479, 117, 25);
 		add(searchBtn);
 	}
 	
-	private void displayNoCustomerFoundInfo() {
-		noCustomerFound = new Label("There is no customer with provided username.");
-		noCustomerFound.setBounds(98, 510, 300, 21);
-		add(noCustomerFound);
+	private void displayNoAppFoundInfo() {
+		noAppFound = new Label("There is no app with provided name.");
+		noAppFound.setBounds(98, 510, 300, 21);
+		add(noAppFound);
 	}
+
 }
