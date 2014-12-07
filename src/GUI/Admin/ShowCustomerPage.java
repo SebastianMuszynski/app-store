@@ -13,17 +13,22 @@ import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public class ShowCustomerPage extends Page {
+	
+	private Customer customer;
 
 	/**
 	 * Create the panel.
 	 */
 	public ShowCustomerPage(Customer customer) {
 		super();
-		addCustomerInfo(customer);
+		this.customer = customer;
+		addCustomerInfo();
 		addBackBtn();
+		addEditCustomerBtn();
+		addRemoveCustomerBtn();
 	}
 	
-	private void addCustomerInfo(Customer customer) {
+	private void addCustomerInfo() {
 		JLabel label = new JLabel("Username: " + customer.getUsername());
 		label.setBounds(116, 184, 300, 15);
 		add(label);
@@ -39,6 +44,29 @@ public class ShowCustomerPage extends Page {
 		JLabel label_4 = new JLabel("Profession: " + customer.getProfession());
 		label_4.setBounds(116, 265, 300, 15);
 		add(label_4);
+	}
+	
+	private void addEditCustomerBtn() {
+		JButton btnEdit = new JButton("Edit");
+		btnEdit.setBounds(514, 200, 150, 25);
+		btnEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openEditCustomerPage(customer);
+			}
+		});
+		add(btnEdit);
+	}
+	
+	private void addRemoveCustomerBtn() {
+		JButton btnRemove = new JButton("Remove");
+		btnRemove.setBounds(514, 237, 150, 25);
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.SHOP.deleteUserByUsername(customer.getUsername());
+				AppWindow.openManageCustomersPage();
+			}
+		});
+		add(btnRemove);
 	}
 	
 	private void addBackBtn() {

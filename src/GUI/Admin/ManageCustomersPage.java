@@ -13,11 +13,14 @@ import javax.swing.ListSelectionModel;
 import AppShop.Customer;
 import GUI.AppWindow;
 import GUI.Page;
+import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class ManageCustomersPage extends Page {
 	
 	private JList<Customer> list;
+	private JTextField customerUsernameTxt;
+	private Label noCustomerFound;
 
 	/**
 	 * Create the panel.
@@ -26,6 +29,7 @@ public class ManageCustomersPage extends Page {
 		super();
 		addCustomersList();
 		addMenuButtons();
+		addCustomerSearchFields();
 	}
 	
 	private void addCustomersList() {
@@ -101,5 +105,36 @@ public class ManageCustomersPage extends Page {
 	private Customer getSelectedCustomer() {
 		int selectedIndex = list.getSelectedIndex();
 		return list.getModel().getElementAt(selectedIndex);
+	}
+	
+	private void addCustomerSearchFields() {
+		customerUsernameTxt = new JTextField();
+		customerUsernameTxt.setBounds(288, 482, 196, 19);
+		customerUsernameTxt.setColumns(10);
+		add(customerUsernameTxt);
+		
+		Label label = new Label("Type customer's username:");
+		label.setBounds(98, 480, 184, 21);
+		add(label);
+		
+		JButton searchBtn = new JButton("Search");
+		searchBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = customerUsernameTxt.getText();
+				Customer customer = (Customer) AppWindow.SHOP.findUserByUsername(username);
+				if(customer != null)
+					AppWindow.openShowCustomerPage(customer);
+				else
+					displayNoCustomerFoundInfo();
+			}
+		});
+		searchBtn.setBounds(496, 479, 117, 25);
+		add(searchBtn);
+	}
+	
+	private void displayNoCustomerFoundInfo() {
+		noCustomerFound = new Label("There is no customer with provided username.");
+		noCustomerFound.setBounds(98, 510, 300, 21);
+		add(noCustomerFound);
 	}
 }
