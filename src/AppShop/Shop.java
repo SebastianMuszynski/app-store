@@ -46,6 +46,13 @@ public class Shop {
 		return apps.size();
 	}
 	
+	public int numberOfPurchasedApps() {
+		int number = 0;
+		for(Customer customer : getCustomers())
+			number += customer.paidAppsNumber();
+		return number;
+	}
+	
 	/**
 	 * @return number of apps used as a free trial. 
 	 */

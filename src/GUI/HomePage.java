@@ -101,23 +101,27 @@ public class HomePage extends Page {
 		Label label_2 = new Label("– PAID apps: " + getShop().paidAppsNumber());
 		label_2.setBounds(121, 230, 119, 21);
 		add(label_2);
+		
+		Label label_3 = new Label("Total number of purchased apps: " + getShop().numberOfPurchasedApps());
+		label_3.setBounds(90, 257, 300, 21);
+		add(label_3);
 	}
 	
 	private void addUsersNumberInfo() {
 		Label label = new Label("Total number of customers: " + getShop().customersNumber());
-		label.setBounds(90, 279, 200, 21);
+		label.setBounds(90, 299, 200, 21);
 		add(label);
 		
 		Label label_2 = new Label("– normal customers: " + getShop().normalCustomersNumber());
-		label_2.setBounds(121, 306, 169, 21);
+		label_2.setBounds(121, 326, 169, 21);
 		add(label_2);
 		
 		Label label_1 = new Label("– students: " + getShop().studentsNumber());
-		label_1.setBounds(121, 333, 131, 21);
+		label_1.setBounds(121, 353, 131, 21);
 		add(label_1);
 		
 		Label label_3 = new Label("– academics: " + getShop().academicsNumber());
-		label_3.setBounds(121, 360, 119, 21);
+		label_3.setBounds(121, 380, 119, 21);
 		add(label_3);
 	}
 	

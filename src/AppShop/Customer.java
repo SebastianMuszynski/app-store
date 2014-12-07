@@ -41,6 +41,14 @@ public class Customer extends User {
 		return number;
 	}
 	
+	public double amountToPaidForApps() {
+		double cost = 0;
+		for(App app : apps)
+			if(app instanceof PaidApp)
+				cost += ((PaidApp) app).getDiscountedCost(this);
+		return cost;
+	}
+	
 	public String getName() {
 		return name;
 	}

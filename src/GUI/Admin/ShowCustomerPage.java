@@ -44,6 +44,18 @@ public class ShowCustomerPage extends Page {
 		JLabel label_4 = new JLabel("Profession: " + customer.getProfession());
 		label_4.setBounds(116, 265, 300, 15);
 		add(label_4);
+
+		JLabel label_5 = new JLabel("Number of apps used as a free trial: " + customer.freeAppsNumber());
+		label_5.setBounds(116, 292, 300, 15);
+		add(label_5);
+		
+		JLabel label_6 = new JLabel("Number of purchased apps: " + customer.paidAppsNumber());
+		label_6.setBounds(116, 319, 300, 15);
+		add(label_6);
+		
+		JLabel label_7 = new JLabel("The amount to be paid for apps: " + customer.amountToPaidForApps());
+		label_7.setBounds(116, 346, 300, 15);
+		add(label_7);
 	}
 	
 	private void addEditCustomerBtn() {
@@ -76,7 +88,7 @@ public class ShowCustomerPage extends Page {
 				AppWindow.openManageCustomersPage();
 			}
 		});
-		btnBack.setBounds(116, 305, 81, 25);
+		btnBack.setBounds(116, 379, 81, 25);
 		add(btnBack);
 	}
 
