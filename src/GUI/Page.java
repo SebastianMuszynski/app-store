@@ -1,11 +1,14 @@
 package GUI;
 
+import java.awt.Button;
 import java.awt.Font;
 import java.awt.Label;
 
 import javax.swing.JPanel;
 
 import AppShop.Shop;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public abstract class Page extends JPanel {
@@ -18,19 +21,22 @@ public abstract class Page extends JPanel {
 		setBounds(100, 100, 450, 300);
 		setSize(800, 600);
 		setLocation(0, 0);
-		addTitle("AppShop");
-	}
-	
-	private void addTitle(String title) {
-		Label label = new Label(title);
-		label.setFont(new Font("Dialog", Font.PLAIN, 20));
-		label.setAlignment(Label.CENTER);
-		label.setBounds(331, 43, 129, 69);
-		add(label);
+		addHomePageBtn();
 	}
 	
 	public Shop getShop() {
 		return AppWindow.SHOP;
+	}
+	
+	private void addHomePageBtn() {
+		Button btnHomepage = new Button("AppShop");
+		btnHomepage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openHomePage();
+			}
+		});
+		btnHomepage.setBounds(330, 66, 140, 42);
+		add(btnHomepage);
 	}
 
 }

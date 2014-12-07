@@ -175,6 +175,15 @@ public class Shop {
 			users.remove(userIndex);
 	}
 	
+	public void deleteUserByUsername(String username) {
+		boolean foundUser = false;
+		for(int i = 0; i < users.size() && !foundUser; i++)
+			if(users.get(i).getUsername().equals(username)) {
+				users.remove(i);
+				foundUser = true;
+			}
+	}
+	
 	/**
 	 * @param app – the app we are looking for.
 	 * @return the index of given app, null if the app does not exist.
@@ -182,7 +191,7 @@ public class Shop {
 	public Integer findAppIndex(App app) {
 		Integer appIndex = null;
 		for(int i = 0; i < apps.size() && appIndex == null; i++)
-			if(app == apps.get(i)) 
+			if(app.getName().equals(apps.get(i).getName()))
 				appIndex = i;
 		return appIndex;
 	}
@@ -194,7 +203,7 @@ public class Shop {
 	public Integer findUserIndex(User user) {
 		Integer userIndex = null;
 		for(int i = 0; i < users.size() && userIndex == null; i++)
-			if(user == users.get(i)) 
+			if(user.getUsername().equals(users.get(i).getUsername())) 
 				userIndex = i;
 		return userIndex;
 	}

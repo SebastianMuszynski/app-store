@@ -1,18 +1,24 @@
 package GUI.Admin;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.AbstractListModel;
+import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
 
 import AppShop.Customer;
 import GUI.AppWindow;
 import GUI.Page;
-import javax.swing.JButton;
+import java.awt.Label;
 
 @SuppressWarnings("serial")
 public class ManageCustomersPage extends Page {
+	
+	private JList<Customer> list;
 
 	/**
 	 * Create the panel.
@@ -20,11 +26,11 @@ public class ManageCustomersPage extends Page {
 	public ManageCustomersPage() {
 		super();
 		addCustomersList();
-		addCustomerMenuBtns();
+		addMenuButtons();
 	}
 	
 	private void addCustomersList() {
-		JList<Customer> list = new JList<Customer>();
+		list = new JList<Customer>();
 		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.setModel(new AbstractListModel<Customer>() {
 			ArrayList<Customer> customers = AppWindow.SHOP.getCustomers();
@@ -37,20 +43,59 @@ public class ManageCustomersPage extends Page {
 		});
 		list.setSelectedIndex(0);
 		list.setBounds(79, 175, 388, 228);
-		add(list);
+		if(list.getModel().getSize() != 0)
+			add(list);
+		else
+			displayNoCustomersInfo();
 	}
 	
-	private void addCustomerMenuBtns() {
+	private void displayNoCustomersInfo() {
+		Label label = new Label("There are no customers :(");
+		label.setBounds(277, 289, 245, 21);
+		add(label);
+	}
+	
+	private void addMenuButtons() { 
+		if(list != null && list.getModel().getSize() > 0) {
+			addShowCustomerBtn();
+			addEditCustomerBtn();
+			addRemoveCustomerBtn();
+		}
+	}
+	
+	private void addShowCustomerBtn() {
 		JButton btnNewButton = new JButton("Show details");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openShowCustomerPage();
+			}
+		});
 		btnNewButton.setBounds(508, 230, 150, 25);
 		add(btnNewButton);
+	}
 		
+	private void addEditCustomerBtn() {
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.setBounds(508, 267, 150, 25);
+		btnEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openEditCustomerPage();
+			}
+		});
 		add(btnEdit);
-		
+	}
+	
+	private void addRemoveCustomerBtn() {
 		JButton btnRemove = new JButton("Remove");
 		btnRemove.setBounds(508, 304, 150, 25);
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int selectedIndex = list.getSelectedIndex();
+				Customer customer = list.getModel().getElementAt(selectedIndex);
+				AppWindow.SHOP.deleteUserByUsername(customer.getUsername());
+				AppWindow.openManageCustomersPage();
+			}
+		});
 		add(btnRemove);
 	}
 }
