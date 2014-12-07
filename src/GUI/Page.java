@@ -1,14 +1,12 @@
 package GUI;
 
 import java.awt.Button;
-import java.awt.Font;
-import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
 import AppShop.Shop;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
 public abstract class Page extends JPanel {

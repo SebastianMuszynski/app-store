@@ -1,6 +1,6 @@
 package GUI.Admin;
 
-import java.awt.Container;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -13,7 +13,6 @@ import javax.swing.ListSelectionModel;
 import AppShop.Customer;
 import GUI.AppWindow;
 import GUI.Page;
-import java.awt.Label;
 
 @SuppressWarnings("serial")
 public class ManageCustomersPage extends Page {
@@ -67,7 +66,9 @@ public class ManageCustomersPage extends Page {
 		JButton btnNewButton = new JButton("Show details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AppWindow.openShowCustomerPage();
+				int selectedIndex = list.getSelectedIndex();
+				Customer selectedCustomer = list.getModel().getElementAt(selectedIndex);
+				AppWindow.openShowCustomerPage(selectedCustomer);
 			}
 		});
 		btnNewButton.setBounds(508, 230, 150, 25);

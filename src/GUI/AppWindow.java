@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import AppShop.Customer;
 import AppShop.Shop;
 import GUI.Admin.EditCustomerPage;
 import GUI.Admin.ManageCustomersPage;
@@ -75,8 +76,8 @@ public class AppWindow {
 		frame.setContentPane(new ManageCustomersPage());
 	}
 	
-	public static void openShowCustomerPage() {
-		frame.setContentPane(new ShowCustomerPage());
+	public static void openShowCustomerPage(Customer customer) {
+		frame.setContentPane(new ShowCustomerPage(customer));
 	}
 	
 	public static void openEditCustomerPage() {
