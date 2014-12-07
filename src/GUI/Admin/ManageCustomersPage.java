@@ -59,11 +59,24 @@ public class ManageCustomersPage extends Page {
 	}
 	
 	private void addMenuButtons() { 
+		addCreateCustomerBtn();
 		if(list != null && list.getModel().getSize() > 0) {
 			addShowCustomerBtn();
 			addEditCustomerBtn();
 			addRemoveCustomerBtn();
 		}
+	}
+	
+	private void addCreateCustomerBtn() {
+		JButton btnNew = new JButton("Create");
+		btnNew.setBounds(508, 193, 150, 25);
+		btnNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AppWindow.openAddCustomerPage();
+			}
+		});
+		add(btnNew);
 	}
 	
 	private void addShowCustomerBtn() {
@@ -76,7 +89,7 @@ public class ManageCustomersPage extends Page {
 		btnNewButton.setBounds(508, 230, 150, 25);
 		add(btnNewButton);
 	}
-		
+	
 	private void addEditCustomerBtn() {
 		JButton btnEdit = new JButton("Edit");
 		btnEdit.setBounds(508, 267, 150, 25);

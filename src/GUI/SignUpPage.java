@@ -93,7 +93,7 @@ public class SignUpPage extends Page {
 		
 	}
 	
-	private void addSendBtn() {
+	protected void addSendBtn() {
 		Button button_1 = new Button("Send");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -105,7 +105,7 @@ public class SignUpPage extends Page {
 		add(button_1);
 	}
 	
-	private User createUser() {
+	protected User createUser() {
 		User user;
 		String selectedCustomerType = customerType.getSelectedItem().toString();
 		

@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 import AppShop.Customer;
 import AppShop.Shop;
+import GUI.Admin.AddCustomerPage;
 import GUI.Admin.EditCustomerPage;
 import GUI.Admin.ManageCustomersPage;
 import GUI.Admin.ShowCustomerPage;
@@ -82,5 +83,9 @@ public class AppWindow {
 	
 	public static void openEditCustomerPage(Customer customer) {
 		frame.setContentPane(new EditCustomerPage(customer));
+	}
+	
+	public static void openAddCustomerPage() {
+		frame.setContentPane(new AddCustomerPage());
 	}
 }
