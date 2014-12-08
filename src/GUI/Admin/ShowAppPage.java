@@ -1,9 +1,14 @@
 package GUI.Admin;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import AppShop.App;
 import AppShop.PaidApp;
+import GUI.AppWindow;
 import GUI.Page;
 
 @SuppressWarnings("serial")
@@ -17,6 +22,9 @@ public class ShowAppPage extends Page {
 		super();
 		this.app = app;
 		addAppInfo();
+		addEditAppBtn();
+		addRemoveAppBtn();
+		addBackBtn();
 	}
 
 	private void addAppInfo() {
@@ -46,6 +54,40 @@ public class ShowAppPage extends Page {
 			costLabel.setBounds(88, 324, 300, 15);
 			add(costLabel);
 		}
+	}
+	
+	private void addEditAppBtn() {
+		JButton btnEdit = new JButton("Edit");
+		btnEdit.setBounds(514, 200, 150, 25);
+		btnEdit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openEditAppPage(app);
+			}
+		});
+		add(btnEdit);
+	}
+	
+	private void addRemoveAppBtn() {
+		JButton btnRemove = new JButton("Remove");
+		btnRemove.setBounds(514, 237, 150, 25);
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.SHOP.deleteAppByName(app.getName());
+				AppWindow.openManageAppsPage();
+			}
+		});
+		add(btnRemove);
+	}
+	
+	private void addBackBtn() {
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openManageAppsPage();
+			}
+		});
+		btnBack.setBounds(116, 379, 81, 25);
+		add(btnBack);
 	}
 	
 	private boolean isPaidApp() {
