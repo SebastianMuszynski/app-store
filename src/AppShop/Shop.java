@@ -160,7 +160,7 @@ public class Shop {
 		App app = null;
 		for(int i = 0; i < apps.size() && app == null; i++) {
 			App currentApp = apps.get(i);
-			if(name == currentApp.getName()) 
+			if(currentApp.getName().equals(name)) 
 				app = currentApp;
 		}
 		return app;
@@ -174,6 +174,15 @@ public class Shop {
 		Integer appIndex = findAppIndex(app);
 		if(appIndex != null)
 			apps.remove(appIndex);
+	}
+	
+	public void deleteAppByName(String appName) {
+		boolean foundApp = false;
+		for(int i = 0; i < apps.size() && !foundApp; i++)
+			if(apps.get(i).getName().equals(appName)) {
+				apps.remove(i);
+				foundApp = true;
+			}
 	}
 	
 	/**
@@ -202,7 +211,7 @@ public class Shop {
 	public Integer findAppIndex(App app) {
 		Integer appIndex = null;
 		for(int i = 0; i < apps.size() && appIndex == null; i++)
-			if(app.getName().equals(apps.get(i).getName()))
+			if(apps.get(i).getName().equals(app.getName()))
 				appIndex = i;
 		return appIndex;
 	}

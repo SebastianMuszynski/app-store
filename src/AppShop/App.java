@@ -19,16 +19,32 @@ public class App {
 		return name;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
 	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getDeveloperName() {
 		return developerName;
 	}
 	
+	public void setDeveloperName(String developerName) {
+		this.developerName = developerName;
+	}
+	
 	public Category getCategory() {
 		return category;
+	}
+	
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 	public String getCategoryName() {
@@ -41,6 +57,10 @@ public class App {
 	
 	public double getCost() {
 		return cost;
+	}
+	
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 	
 	public String toString() {

@@ -63,7 +63,7 @@ public class ManageAppsPage extends Page {
 		if(list != null && list.getModel().getSize() > 0) {
 			addShowAppBtn();
 			addEditAppBtn();
-			addRemoveCustomerBtn();
+			addRemoveAppBtn();
 		}
 	}
 	
@@ -100,15 +100,15 @@ public class ManageAppsPage extends Page {
 		add(btnEdit);
 	}
 	
-	private void addRemoveCustomerBtn() {
+	private void addRemoveAppBtn() {
 		JButton btnRemove = new JButton("Remove");
 		btnRemove.setBounds(508, 304, 150, 25);
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int selectedIndex = list.getSelectedIndex();
 				App app = list.getModel().getElementAt(selectedIndex);
-				AppWindow.SHOP.deleteApp(app);
-				AppWindow.openManageCustomersPage();
+				AppWindow.SHOP.deleteAppByName(app.getName());
+				AppWindow.openManageAppsPage();
 			}
 		});
 		add(btnRemove);
