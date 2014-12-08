@@ -43,4 +43,8 @@ public class App {
 		return cost;
 	}
 	
+	public String toString() {
+		return name + " by " + developerName + " (" + category + ")";
+	}
+	
 }

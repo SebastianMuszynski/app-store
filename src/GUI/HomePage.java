@@ -23,6 +23,7 @@ public class HomePage extends Page {
 			addLogOutBtn();
 			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
 			addManageCustomersBtn();
+			addManageAppsBtn();
 		} else if(AppWindow.SHOP.isUserLoggedIn()) {
 			addLogOutBtn();
 			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
@@ -50,6 +51,17 @@ public class HomePage extends Page {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AppWindow.openManageCustomersPage();
+			}
+		});
+		add(button);
+	}
+	
+	private void addManageAppsBtn() {
+		Button button = new Button("Apps");
+		button.setBounds(416, 469, 150, 50);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openManageAppsPage();
 			}
 		});
 		add(button);
