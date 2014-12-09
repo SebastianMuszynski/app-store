@@ -23,6 +23,10 @@ public class Customer extends User {
 		return apps.size();
 	}
 	
+	public void addApp(App app) {
+		apps.add(app);
+	}
+	
 	/**
 	 * @return number of apps used as a free trial. 
 	 */
