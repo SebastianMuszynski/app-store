@@ -4,7 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import AppShop.App;
+import AppShop.Category;
 import AppShop.Customer;
+import AppShop.PaidApp;
 import AppShop.Shop;
 import GUI.Admin.AddAppPage;
 import GUI.Admin.AddCustomerPage;
@@ -14,6 +16,7 @@ import GUI.Admin.ManageAppsPage;
 import GUI.Admin.ManageCustomersPage;
 import GUI.Admin.ShowAppPage;
 import GUI.Admin.ShowCustomerPage;
+import GUI.Customer.ListAppsPage;
 
 
 public class AppWindow {
@@ -42,6 +45,10 @@ public class AppWindow {
 	 */
 	public AppWindow() {
 		initialize();
+		App app = new App("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS);
+		PaidApp paidApp = new PaidApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.SOCIAL, 12.50);
+		SHOP.addApp(app);
+		SHOP.addApp(paidApp);
 	}
 
 	/**
@@ -110,5 +117,9 @@ public class AppWindow {
 	
 	public static void openAddAppPage() {
 		frame.setContentPane(new AddAppPage());
+	}
+	
+	public static void openListAppsPage() {
+		frame.setContentPane(new ListAppsPage());
 	}
 }

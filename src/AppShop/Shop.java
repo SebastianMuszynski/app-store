@@ -98,6 +98,14 @@ public class Shop {
 		return apps;
 	}
 	
+	public ArrayList<App> getAppsByCategoryName(String category) {
+		ArrayList<App> selectedApps = new ArrayList<App>();
+		for(App app : apps)
+			if(app.getCategoryName().equals(category))
+				selectedApps.add(app);
+		return selectedApps;
+	}
+	
 	public int normalCustomersNumber() {
 		return customersNumber() - studentsNumber() - academicsNumber();
 	}

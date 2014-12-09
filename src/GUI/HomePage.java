@@ -27,6 +27,7 @@ public class HomePage extends Page {
 		} else if(AppWindow.SHOP.isUserLoggedIn()) {
 			addLogOutBtn();
 			addUserLoggedInInfo(AppWindow.SHOP.getCurrentUser());
+			addListAppsBtn();
 		} else {
 			addAdminLoginBtn();
 			addLoginBtn();
@@ -62,6 +63,17 @@ public class HomePage extends Page {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AppWindow.openManageAppsPage();
+			}
+		});
+		add(button);
+	}
+	
+	private void addListAppsBtn() {
+		Button button = new Button("Apps");
+		button.setBounds(416, 469, 150, 50);
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AppWindow.openListAppsPage();
 			}
 		});
 		add(button);
