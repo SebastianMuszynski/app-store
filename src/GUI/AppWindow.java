@@ -16,6 +16,7 @@ import GUI.Admin.ManageAppsPage;
 import GUI.Admin.ManageCustomersPage;
 import GUI.Admin.ShowAppPage;
 import GUI.Admin.ShowCustomerPage;
+import GUI.Customer.AppDetailsPage;
 import GUI.Customer.ListAppsPage;
 
 
@@ -119,7 +120,12 @@ public class AppWindow {
 		frame.setContentPane(new AddAppPage());
 	}
 	
+	// User: Apps
 	public static void openListAppsPage() {
 		frame.setContentPane(new ListAppsPage());
+	}
+	
+	public static void openAppDetailsPage(App app) {
+		frame.setContentPane(new AppDetailsPage(app));
 	}
 }

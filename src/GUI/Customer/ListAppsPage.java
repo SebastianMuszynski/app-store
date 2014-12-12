@@ -87,6 +87,13 @@ public class ListAppsPage extends Page {
 	private void addShowDetailsBtn() {
 		btnShowAppDetails = new JButton("Show details");
 		btnShowAppDetails.setBounds(526, 246, 190, 25);
+		btnShowAppDetails.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				App app = getSelectedApp();
+				if(app != null)
+					AppWindow.openAppDetailsPage(app);
+			}
+		});
 		add(btnShowAppDetails);
 	}
 	
