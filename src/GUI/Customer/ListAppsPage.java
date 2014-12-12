@@ -165,7 +165,6 @@ public class ListAppsPage extends Page {
 	}
 	
 	private App getSelectedApp() {
-		System.out.println(list.getSelectedValue());
 		return list.getSelectedValue();
 	}
 	
