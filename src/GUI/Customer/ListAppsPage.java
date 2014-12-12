@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
 import AppShop.App;
@@ -29,6 +30,8 @@ public class ListAppsPage extends Page {
 	private JButton btnDownload;
 	private JButton btnBuyAndDownload;
 	private JLabel appPriceTxt;
+	private JTextField appNameTxt;
+	private Label noAppFound;
 
 	/**
 	 * Create the panel.
@@ -43,6 +46,7 @@ public class ListAppsPage extends Page {
 		setPriceTxtVisibility();
 		refreshListContentAndHideIfEmpty();
 		setFieldsVisibility();
+		addAppSearchFields();
 		addBackBtn();
 	}
 	
@@ -195,7 +199,39 @@ public class ListAppsPage extends Page {
 				AppWindow.openHomePage();
 			}
 		});
-		btnBack.setBounds(290, 525, 220, 25);
+		btnBack.setBounds(290, 545, 220, 25);
 		add(btnBack);
 	}
+	
+	private void addAppSearchFields() {
+		appNameTxt = new JTextField();
+		appNameTxt.setBounds(288, 482, 196, 19);
+		appNameTxt.setColumns(10);
+		add(appNameTxt);
+		
+		Label label = new Label("Type app's name:");
+		label.setBounds(98, 480, 184, 21);
+		add(label);
+		
+		JButton searchBtn = new JButton("Search");
+		searchBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String name = appNameTxt.getText();
+				App app = (App) AppWindow.SHOP.findAppByName(name);
+				if(app != null)
+					AppWindow.openShowAppPage(app);
+				else
+					displayNoAppFoundInfo();
+			}
+		});
+		searchBtn.setBounds(496, 479, 117, 25);
+		add(searchBtn);
+	}
+	
+	private void displayNoAppFoundInfo() {
+		noAppFound = new Label("There is no app with provided name.");
+		noAppFound.setBounds(98, 510, 300, 21);
+		add(noAppFound);
+	}
+
 }
