@@ -1,7 +1,8 @@
 package AppShop;
 import java.util.ArrayList;
 
-public class Customer extends User {
+public class Customer extends User implements java.io.Serializable{
+
 	private String name;
 	private String address;
 	private String profession;
@@ -13,6 +14,7 @@ public class Customer extends User {
 		this.address = address;
 		this.profession = profession;
 		apps = new ArrayList<App>(); 
+		save();
 	}
 	
 	public double getAppPercentageDiscount() {
@@ -25,6 +27,7 @@ public class Customer extends User {
 	
 	public void addApp(App app) {
 		apps.add(app);
+		save();// save the newly added app to our file.
 	}
 	
 	/**
@@ -79,6 +82,15 @@ public class Customer extends User {
 	
 	public String toString() {
 		return name + " (" + username + ")";
+	}
+	
+	/**
+	 * Doesn't need to check if the file exists before and can happily overwrite.
+	 * This is because the customer file is constantly being updated with new 
+	 * information from the system, no information needs to be preserved.
+	 */
+	public void save(){
+		Serialiser.serialise(this, "data/customers/"+username+".appstore");
 	}
 
 }
