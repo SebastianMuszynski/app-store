@@ -8,6 +8,7 @@ import AppShop.App;
 import AppShop.Category;
 import AppShop.Customer;
 import AppShop.PaidApp;
+import AppShop.Serialiser;
 import AppShop.Shop;
 import AppShop.Student;
 import GUI.Admin.AddAppPage;
@@ -63,11 +64,7 @@ public class AppWindow {
 	
 	private void addSampleData() {
 		// Add students
-		SHOP.addUser(new Student("jack123", "123123", "Jack Todd", "46 Kingston Upon Thames", "Web Developer"));
-		SHOP.addUser(new Student("john2", "123123", "John Clarke", "1 Richmond",  "Engineering"));
-		SHOP.addUser(new Student("sarah44", "123123", "Sarah Floyd", "85 Kew",  "Web Designer"));
-		SHOP.addUser(new Student("peter26", "123123", "Peter Matthews",  "32 Ham",  "Doctor"));
-		SHOP.addUser(new Student("jessie16", "123123", "Jessie Gomes",  "101 Esher", "Photographer"));
+		Serialiser.loadUsers();
 		// Add academics
 		SHOP.addUser(new Academic("kelly123", "123123", "Kelly Hale", "142 Wimbledon", "Audio Engineer"));
 		SHOP.addUser(new Academic("laura2", "123123", "Laura Jefferson", "65 Putney",  "Childcare Worker"));
@@ -86,7 +83,6 @@ public class AppWindow {
 		SHOP.addApp(new PaidApp("SuperFlashCards", "FlashCards - Be able to create animated flashcards - add images or texts", "FlashCards", Category.EDUCATION, 10.00));
 		SHOP.addApp(new PaidApp("Go To Docs", "View, edit and create files.", "Docs102", Category.OTHER, 10.00));
 		SHOP.addApp(new PaidApp("WritePad Plus+", "Plain text editor - writing poems, lyrics and essays. 'Paid Version' - Edit font styles, add colour and save to Dropbox/GoogleDrive", "Pad", Category.LIFESTYLE, 10.00));
-
 	}
 	
 	private void setDefaultSettings() {

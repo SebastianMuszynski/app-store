@@ -13,8 +13,9 @@ public class Main {
 		
 		System.out.println();
 		
-		Customer student = new Student("jack123", "qwerty", "Jack", "Los Angeles", "web developer");
+		Customer student = (Student)Serialiser.deserialise("data/customers/jack123.appstore");
 		Customer academic = new Academic("jack456", "myPassword", "Jack", "Los Angeles", "web developer");
+		
 		System.out.println(student.toString());
 		
 		System.out.println("Student info:");
@@ -27,6 +28,8 @@ public class Main {
 		PaidApp paidApp = new PaidApp("Flappy Bird", "Flapping bird game.", "Dev Name", Category.NEWS, 12.50);
 		System.out.println("PaidApp price for student: " + paidApp.getDiscountedCost(student));
 		System.out.println("PaidApp price for academic: " + paidApp.getDiscountedCost(academic));
+		
 	}
+	
 
 }

@@ -14,7 +14,6 @@ public class Customer extends User implements java.io.Serializable{
 		this.address = address;
 		this.profession = profession;
 		apps = new ArrayList<App>(); 
-		save();
 	}
 	
 	public double getAppPercentageDiscount() {
@@ -27,7 +26,6 @@ public class Customer extends User implements java.io.Serializable{
 	
 	public void addApp(App app) {
 		apps.add(app);
-		save();// save the newly added app to our file.
 	}
 	
 	/**
@@ -84,13 +82,4 @@ public class Customer extends User implements java.io.Serializable{
 		return name + " (" + username + ")";
 	}
 	
-	/**
-	 * Doesn't need to check if the file exists before and can happily overwrite.
-	 * This is because the customer file is constantly being updated with new 
-	 * information from the system, no information needs to be preserved.
-	 */
-	public void save(){
-		Serialiser.serialise(this, "data/customers/"+username+".appstore");
-	}
-
 }

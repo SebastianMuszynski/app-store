@@ -10,5 +10,5 @@ public class Student extends Customer {
 	public double getAppPercentageDiscount() {
 		return APP_PERCENTAGE_DISCOUNT;
 	}
-
+	
 }
