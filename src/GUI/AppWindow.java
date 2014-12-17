@@ -63,26 +63,10 @@ public class AppWindow {
 	}
 	
 	private void addSampleData() {
-		// Add students
+		// load sample students
 		Serialiser.loadUsers();
-		// Add academics
-		SHOP.addUser(new Academic("kelly123", "123123", "Kelly Hale", "142 Wimbledon", "Audio Engineer"));
-		SHOP.addUser(new Academic("laura2", "123123", "Laura Jefferson", "65 Putney",  "Childcare Worker"));
-		SHOP.addUser(new Academic("jason44", "123123", "Jason Moore", "91 Clapham",  "Actor"));
-		SHOP.addUser(new Academic("jasmine26", "123123", "Jasmine Hansen",  "24 Edgware",  "Lawyer"));
-		SHOP.addUser(new Academic("michael16", "123123", "Michael Elliott",  "19 Watford", "Teacher"));
-		// Add apps
-		SHOP.addApp(new App("Scribes", "Free books to read", "87ScribeBooks78", Category.BOOKS));
-		SHOP.addApp(new App("FaceSpace", "Social Networking for Students", "FaceSpace", Category.SOCIAL));
-		SHOP.addApp(new App("Music Player", "Plays songs from your media library on your phone", "PlayMusic", Category.MUSIC));
-		SHOP.addApp(new App("WritePad", "Plain text editor - writing poems, lyrics and essays.", "user039", Category.LIFESTYLE));
-		SHOP.addApp(new App("24London", "Recent news around London", "londoner65", Category.NEWS));
-		// Add paid apps
-		SHOP.addApp(new PaidApp("MakerMusic", "Create tracks from scratch. Change pitch, tempo and sound effects.", "MakerMak0", Category.MUSIC, 10.00));
-		SHOP.addApp(new PaidApp("Doodle Fun", "Drawing app for kids.", "Doodle123", Category.GAMES, 10.00));
-		SHOP.addApp(new PaidApp("SuperFlashCards", "FlashCards - Be able to create animated flashcards - add images or texts", "FlashCards", Category.EDUCATION, 10.00));
-		SHOP.addApp(new PaidApp("Go To Docs", "View, edit and create files.", "Docs102", Category.OTHER, 10.00));
-		SHOP.addApp(new PaidApp("WritePad Plus+", "Plain text editor - writing poems, lyrics and essays. 'Paid Version' - Edit font styles, add colour and save to Dropbox/GoogleDrive", "Pad", Category.LIFESTYLE, 10.00));
+		// load sample appdata
+		Serialiser.loadApps();
 	}
 	
 	private void setDefaultSettings() {

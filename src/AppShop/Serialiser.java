@@ -42,11 +42,14 @@ public class Serialiser {
 	    return null;
 	}
 	
+	/**
+	 * .apu stands for app store user, a made up file extension.
+	 */
 	public static void loadUsers(){
 		File f = new File("data/customers/");
 		File[] matchingFiles = f.listFiles(new FilenameFilter() {
 		    public boolean accept(File dir, String name) {
-		        return name.endsWith("appstore");
+		        return name.endsWith("apu");
 		    }
 		});
 		for(int i = 0; i < matchingFiles.length; i++){
@@ -58,6 +61,25 @@ public class Serialiser {
 				AppWindow.SHOP.addUser((Academic)o);
 			}else if(o instanceof Customer){
 				AppWindow.SHOP.addUser((Customer)o);
+			}
+		}
+	}
+	
+	public static void loadApps(){
+		File f = new File("data/apps/");
+		File[] matchingFiles = f.listFiles(new FilenameFilter() {
+		    public boolean accept(File dir, String name) {
+		        return name.endsWith("app");
+		    }
+		});
+		for(int i = 0; i < matchingFiles.length; i++){
+			// loads the object of the current file in the directory.
+			System.out.println(matchingFiles[i].getName());
+			Object o = Serialiser.deserialise("data/apps/" + matchingFiles[i].getName());
+			if(o instanceof PaidApp){// check whether its a paid app or not
+				AppWindow.SHOP.addApp((PaidApp)o);
+			}else if(o instanceof App){
+				AppWindow.SHOP.addApp((App)o);
 			}
 		}
 	}

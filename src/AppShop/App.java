@@ -1,6 +1,8 @@
 package AppShop;
 
-public class App {
+import java.io.Serializable;
+
+public class App implements Serializable {
 	private String name;
 	private String description;
 	private String developerName;
@@ -66,5 +68,5 @@ public class App {
 	public String toString() {
 		return name + " by " + developerName + " (" + category + ")";
 	}
-	
+
 }
