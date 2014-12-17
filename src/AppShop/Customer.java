@@ -1,7 +1,7 @@
 package AppShop;
 import java.util.ArrayList;
 
-public class Customer extends User implements java.io.Serializable{
+public class Customer extends User{
 
 	private String name;
 	private String address;
