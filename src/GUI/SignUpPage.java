@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 
 import AppShop.Academic;
 import AppShop.Customer;
+import AppShop.Serialiser;
 import AppShop.Student;
 import AppShop.User;
 
@@ -116,6 +117,7 @@ public class SignUpPage extends Page {
 		else
 			user = new Customer(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
 		
+		Serialiser.serialise(user, "data/customers/"+user.getUsername()+".appstore");
 		AppWindow.SHOP.addUser(user);
 		return user;
 	}
