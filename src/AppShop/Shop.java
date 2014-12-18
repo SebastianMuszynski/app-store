@@ -1,4 +1,7 @@
 package AppShop;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Shop {
@@ -181,15 +184,31 @@ public class Shop {
 	public void deleteApp(App app) {
 		Integer appIndex = findAppIndex(app);
 		if(appIndex != null)
-			apps.remove(appIndex);
+			try {
+				File file = new File("data/apps/" + app.getName() + ".app");
+				if(file.delete()){
+					apps.remove(appIndex);
+				}
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+//			apps.remove(appIndex);
 	}
 	
 	public void deleteAppByName(String appName) {
 		boolean foundApp = false;
 		for(int i = 0; i < apps.size() && !foundApp; i++)
 			if(apps.get(i).getName().equals(appName)) {
-				apps.remove(i);
-				foundApp = true;
+				try {
+					File file = new File("data/apps/" + apps.get(i).getName() + ".app");
+					if(file.delete()){
+						apps.remove(i);
+					}
+					
+					foundApp = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 	}
 	
@@ -199,16 +218,29 @@ public class Shop {
 	 */
 	public void deleteUser(User user) {
 		Integer userIndex = findUserIndex(user);
-		if(userIndex != null)
-			users.remove(userIndex);
+		if(userIndex != null) {
+			try {
+				File file = new File("data/customers/" + users.get(userIndex).getUsername() + ".apu");
+				file.delete();
+				users.remove(userIndex);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void deleteUserByUsername(String username) {
 		boolean foundUser = false;
 		for(int i = 0; i < users.size() && !foundUser; i++)
 			if(users.get(i).getUsername().equals(username)) {
-				users.remove(i);
-				foundUser = true;
+				try {
+					File file = new File("data/customers/" + users.get(i).getUsername() + ".apu");
+					file.delete();
+					users.remove(i);
+					foundUser = true;
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 	}
 	

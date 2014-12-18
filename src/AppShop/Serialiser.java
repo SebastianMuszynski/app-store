@@ -72,15 +72,13 @@ public class Serialiser {
 		        return name.endsWith("app");
 		    }
 		});
+		
 		for(int i = 0; i < matchingFiles.length; i++){
-			// loads the object of the current file in the directory.
-			System.out.println(matchingFiles[i].getName());
 			Object o = Serialiser.deserialise("data/apps/" + matchingFiles[i].getName());
-			if(o instanceof PaidApp){// check whether its a paid app or not
+			if(o instanceof PaidApp)
 				AppWindow.SHOP.addApp((PaidApp)o);
-			}else if(o instanceof App){
+			else
 				AppWindow.SHOP.addApp((App)o);
-			}
 		}
 	}
 }

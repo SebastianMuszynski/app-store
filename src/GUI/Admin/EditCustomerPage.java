@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import AppShop.Customer;
+import AppShop.Serialiser;
 import GUI.AppWindow;
 import GUI.Page;
 
@@ -102,6 +103,7 @@ public class EditCustomerPage extends Page {
 				customer.setName(nameTxt.getText());
 				customer.setAddress(addressTxt.getText());
 				customer.setProfession(professionTxt.getText());
+				Serialiser.serialise(customer, "data/customers/" + customer.getUsername() + ".apu");
 				AppWindow.openManageCustomersPage();
 			}
 		});

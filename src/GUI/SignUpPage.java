@@ -117,7 +117,7 @@ public class SignUpPage extends Page {
 		else
 			user = new Customer(usernameTxt.getText(), passwordTxt.getText(), nameTxt.getText(), addressTxt.getText(), professionTxt.getText());
 		
-		Serialiser.serialise(user, "data/customers/"+user.getUsername()+".appstore");
+		Serialiser.serialise(user, "data/customers/"+user.getUsername()+".apu");
 		AppWindow.SHOP.addUser(user);
 		return user;
 	}

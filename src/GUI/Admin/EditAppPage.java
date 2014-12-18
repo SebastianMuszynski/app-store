@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import AppShop.App;
 import AppShop.Category;
 import AppShop.PaidApp;
+import AppShop.Serialiser;
 import GUI.AppWindow;
 import GUI.Page;
 
@@ -132,6 +133,7 @@ public class EditAppPage extends Page {
 				AppWindow.SHOP.deleteAppByName(currentApp.getName());
 				PaidApp newPaidApp = new PaidApp(name, description, developerName, category, cost);
 				AppWindow.SHOP.addApp(newPaidApp);
+				Serialiser.serialise(newPaidApp, "data/apps/" + newPaidApp.getName() +".app");
 			}
 		} else {
 			// Selected type of app: FREE
@@ -140,6 +142,7 @@ public class EditAppPage extends Page {
 				AppWindow.SHOP.deleteAppByName(currentApp.getName());
 				App newFreeApp = new App(name, description, developerName, category);
 				AppWindow.SHOP.addApp(newFreeApp);
+				Serialiser.serialise(newFreeApp, "data/apps/" + newFreeApp.getName() +".app");
 			} else {
 				// ... and previous type of app was also FREE
 				currentApp.setName(name);

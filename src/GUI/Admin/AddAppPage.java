@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import AppShop.App;
 import AppShop.Category;
 import AppShop.PaidApp;
+import AppShop.Serialiser;
 import GUI.AppWindow;
 import GUI.Page;
 
@@ -123,6 +124,7 @@ public class AddAppPage extends Page {
 		} else
 			app = new App(name, description, developerName, category);
 		
+		Serialiser.serialise(app, "data/apps/" + app.getName() +".app");
 		AppWindow.SHOP.addApp(app);
 		return app;
 	}
